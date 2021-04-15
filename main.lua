@@ -30,7 +30,7 @@ local saveScore
 local loadScore
 local halfScreenHeight = display.contentHeight / 2
 local halfScreenWidth = display.contentWidth / 2
-
+local bgSwitchSpeed = 500;
 -- preload audio
 
 local sndKill = audio.loadSound("boing-1.wav")
@@ -168,7 +168,8 @@ function startGame()
 			planet.numHits = 5
 			planet.alpha = 1
 			speedBump = 0
-			bgTimer = timer.performWithDelay(500, changeBg, 0)
+			bgSwitchSpeed = 500;
+			bgTimer = timer.performWithDelay(bgSwitchSpeed, changeBg)
 		end
 	end
 	playBtn:addEventListener ( "tap", goAway )
@@ -203,10 +204,6 @@ local function planetDamage()
 		end
 		highscoreTxt.alpha = 1
 	else
-		local function goAway(obj)
-			planet.xScale = 1
-			planet.yScale = 1
-		end
 		animateBall()
 	end
 end
@@ -261,6 +258,10 @@ function changeBg()
 		bg1.isVisible = true;
 	end
 	bgIndex = (bgIndex + 1) % 5;
+	if bgSwitchSpeed > 200 then
+		bgSwitchSpeed = bgSwitchSpeed - 1;
+	end
+	bgTimer = timer.performWithDelay(bgSwitchSpeed, changeBg)
 end
 
 function animateTitle()
