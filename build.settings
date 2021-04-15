@@ -3,9 +3,8 @@ settings =
 	splashScreen = 
 	{
 		enable = false,
-		image = "Default.png"
 	},
-	
+
 	orientation =
 	{
 		default = "landscapeRight",
