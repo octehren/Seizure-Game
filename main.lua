@@ -103,7 +103,7 @@ function spawnEnemy()
 	--local enemypics = {"enemy1.png","enemy2.png", "enemy3.png"}
 	--local enemy = display.newImage(enemypics[math.random (#enemypics)])
 	local function createEnemy()
-		local enemy = display.newImage("enemy" .. math.random(1, 5) .. ".png")
+		local enemy = display.newImage("enemy" .. math.random(1, 9) .. ".png")
 		-- when ship is tapped, run shipSmash function on it
 		enemy:addEventListener ( "touch", shipSmash )
 		local offsetX
