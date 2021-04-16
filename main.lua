@@ -160,7 +160,6 @@ function startGame()
 			display.remove(gameTitle)
 			enemies = display.newGroup()
 			onScreenEnemies = 0
-			spawnEnemy()
 			scoreTxt.alpha = 1
 			scoreTxt.text = "Score: 0"
 			score = 0
@@ -170,6 +169,7 @@ function startGame()
 			speedBump = 0
 			bgSwitchSpeed = 500;
 			bgTimer = timer.performWithDelay(bgSwitchSpeed, changeBg)
+			spawnEnemy()
 		end
 	end
 	playBtn:addEventListener ( "tap", goAway )
